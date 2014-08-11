@@ -1,4 +1,5 @@
 <?php
 
-define("MESSAGE", 'オムライス');
+// データファイル名
+define("DATAFILE", 'recipe_data.txt');
 
