@@ -16,7 +16,7 @@ while (!feof($fp))
     if ($msg == '') continue;
 
     $recipe_id++;
-    printf('%2$02d:%1$s', $msg, $recipe_id);
+    printf('%2$ 3d:%1$s', $msg, $recipe_id);
 }
 fclose($fp);
 
