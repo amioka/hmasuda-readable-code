@@ -15,6 +15,10 @@ if (feof($fp)) {
 	die("No recipe file: " . DATAFILE);
 }
 list($user_name) = fgetcsv($fp);
+if (!preg_match('/^[a-z0-9\-\_]{1,10}$/', $user_name)) {
+	fclose($fp);
+	die("Invalid username: " . DATAFILE);
+}
 
 printf('ユーザ名：%s', $user_name);
 print("\n");
