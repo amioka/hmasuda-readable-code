@@ -1,14 +1,17 @@
 <?php
 include("init.php");
 
-    $fp = fopen (DATAFILE, 'r');
+if (!file_exists(DATAFILE))
+    die("No such file: " . DATAFILE);
 
-    if ($fp) {
-        while (!feof($fp)) {
-            $msg = fgets($fp);
-            print($msg);
-        }
-    }
-    fclose($fp);
+if (!$fp = fopen (DATAFILE, 'r'))
+    die("Cannot open " . DATAFILE);
 
+// データファイルの中身を表示する
+while (!feof($fp))
+{
+    $msg = fgets($fp);
+    print($msg);
+}
+fclose($fp);
 
