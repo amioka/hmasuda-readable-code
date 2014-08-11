@@ -9,6 +9,16 @@ if (!$fp = fopen (DATAFILE, 'r'))
 
 $recipe_id = 0;
 
+// レシピデータ一行目のヘッダを読み込む
+if (feof($fp)) {
+	fclose($fp);
+	die("No recipe file: " . DATAFILE);
+}
+list($user_name) = fgetcsv($fp);
+
+printf('ユーザ名：%s', $user_name);
+print("\n");
+
 // レシピにIDを振りながらデータファイルの中身を表示する
 while (!feof($fp))
 {
