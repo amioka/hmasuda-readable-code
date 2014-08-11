@@ -25,11 +25,12 @@ php ./recipe.php recipe_data.txt
 ## レシピ情報
 
 * ファイル名は任意（コマンドラインの第一引数でファイルパスを指定）
-* 中身はレシピ情報を1行1データで記述する
+* 中身はレシピ情報をCSVで記述する
+* 第1カラムはレシピ名、第2カラムはレシピのURL
 
 ```
-オムライス
-親子丼
-杏仁豆腐
+オムライス,http://cookpad.com/recipe/2653946
+親子丼,http://cookpad.com/recipe/2657882
+杏仁豆腐,http://cookpad.com/recipe/2654398
 ```
 

@@ -12,15 +12,21 @@ $recipe_id = 0;
 // レシピにIDを振りながらデータファイルの中身を表示する
 while (!feof($fp))
 {
-    $msg = fgets($fp);
-    if ($msg == '') continue;
+    $msg = fgetcsv($fp);
+    if (empty($msg)) continue;
+
+    list($recipe_name, $recipe_url) = $msg;
 
     $recipe_id++;
 
     // 表示するレシピIDに制限があれば、指定されたID以外は表示しない
     if (SELECT_RECIPE_ID && $recipe_id != SELECT_RECIPE_ID) continue;
 
-    printf('%2$ 3d:%1$s', $msg, $recipe_id);
+    // レシピ情報を表示する
+    printf('%2$ 3d:%1$s', $recipe_name, $recipe_id);
+    print("\n");
+    printf('    => URL:%s', $recipe_url);
+    print("\n");
 }
 fclose($fp);
 
