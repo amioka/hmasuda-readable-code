@@ -1,3 +1,5 @@
 <?php
-    print "オムライス\n";
+include("init.php");
+
+    print MESSAGE;
 
