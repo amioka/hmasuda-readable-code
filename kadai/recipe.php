@@ -16,6 +16,10 @@ while (!feof($fp))
     if ($msg == '') continue;
 
     $recipe_id++;
+
+    // 表示するレシピIDに制限があれば、指定されたID以外は表示しない
+    if (LIMITED_RECIPE_ID && $recipe_id != LIMITED_RECIPE_ID) continue;
+
     printf('%2$ 3d:%1$s', $msg, $recipe_id);
 }
 fclose($fp);
