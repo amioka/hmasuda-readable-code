@@ -7,11 +7,16 @@ if (!file_exists(DATAFILE))
 if (!$fp = fopen (DATAFILE, 'r'))
     die("Cannot open " . DATAFILE);
 
-// データファイルの中身を表示する
+$recipe_id = 0;
+
+// レシピにIDを振りながらデータファイルの中身を表示する
 while (!feof($fp))
 {
     $msg = fgets($fp);
-    print($msg);
+    if ($msg == '') continue;
+
+    $recipe_id++;
+    printf('%2$02d:%1$s', $msg, $recipe_id);
 }
 fclose($fp);
 
